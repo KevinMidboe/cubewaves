@@ -13,8 +13,8 @@ function draw() {
    background(220);
    ortho(-700, 700, 700, -700, 0, 1200);
 
-   rotateX(-QUARTER_PI);
-   rotateY(ma);
+   rotateX(-ma);
+   rotateY(QUARTER_PI);
 
    rectMode(CENTER);
 
