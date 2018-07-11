@@ -13,6 +13,12 @@ app.get('/', function (req, res) {
 	// res.send('Hello GET');
 })
 
+app.get('/box', function (req, res) {
+        console.log("Got a GET request for /box");
+        res.sendFile(path.join(__dirname + '/box.html'));
+        // res.send('Hello GET');
+})
+
 var server = app.listen(3000, function () {
 	var host = server.address().address
 	var port = server.address().port
