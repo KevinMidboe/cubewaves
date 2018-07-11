@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-   background(220);
+   background("#1e1e1e");
    ortho(-700, 700, 700, -700, 0, 1200);
 
    rotateX(-ma);
