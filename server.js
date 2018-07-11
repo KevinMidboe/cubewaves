@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 
 app.use("/public", express.static(__dirname + '/public'));
+app.use("/src", express.static(__dirname + '/src'));
 
 
 // This responds with "Hello World" on the homepage
