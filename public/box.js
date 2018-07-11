@@ -149,12 +149,12 @@ function initBuffers(gl) {
   // for each face.
 
   const faceColors = [
-    [1.0,  1.0,  1.0,  1.0],    // Front face: white
-    [1.0,  0.0,  0.0,  1.0],    // Back face: red
-    [0.0,  1.0,  0.0,  1.0],    // Top face: green
-    [0.0,  0.0,  1.0,  1.0],    // Bottom face: blue
-    [1.0,  1.0,  0.0,  1.0],    // Right face: yellow
-    [1.0,  0.0,  1.0,  1.0],    // Left face: purple
+    [0.902,  0.890,  0.698,  1.0],    // Front face: white
+    [0.251,  0.333,  0.510,  1.0],    // Back face: red
+    [0.518,  0.729,  0.706,  1.0],    // Top face: green
+    [0.902,  0.890,  0.698,  1.0],    // Front face: white
+    [0.251,  0.333,  0.510,  1.0],    // Back face: red
+    [0.518,  0.729,  0.706,  1.0], 
   ];
 
   // Convert the array of colors into a table for all the vertices.
@@ -250,11 +250,11 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
   mat4.rotate(modelViewMatrix,  // destination matrix
               modelViewMatrix,  // matrix to rotate
               cubeRotation,     // amount to rotate in radians
-              [0, 0, 1]);       // axis to rotate around (Z)
+              [0.5, 1, 0.7]);       // axis to rotate around (Z)
   mat4.rotate(modelViewMatrix,  // destination matrix
               modelViewMatrix,  // matrix to rotate
               cubeRotation * .7,// amount to rotate in radians
-              [0, 1, 0]);       // axis to rotate around (X)
+              [0, 0.7, 0]);       // axis to rotate around (X)
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute
