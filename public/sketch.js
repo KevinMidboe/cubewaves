@@ -2,19 +2,28 @@ let angle = 0;
 let w = 40;
 let ma;
 let maxD;
+let window_w;
 
 function setup() {
-   createCanvas(600, 600, WEBGL);
-   ma = atan(1 / sqrt(2))
+   window_w = min(window.innerWidth, 1200);
+   createCanvas(window_w, window_w, WEBGL);
+   ma = atan(1 / sqrt(2));
    maxD = dist(0, 0, 200, 200);
 }
 
 function draw() {
    background("#1e1e1e");
-   ortho(-700, 700, 700, -700, 0, 1200);
+
+   let o_w = window_w + 100;
+   ortho(-o_w, o_w, o_w, -o_w, 0, o_w + 500);
+
+   if (o_w > 750) {
+      translate(0, o_w * 0.35);
+   }
 
    rotateX(-ma);
    rotateY(QUARTER_PI);
+
 
    rectMode(CENTER);
 
