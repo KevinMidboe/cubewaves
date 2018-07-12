@@ -1,20 +1,37 @@
 let angle = 0;
-let w = 40;
+let w = 60;
 let ma;
 let maxD;
-let window_w;
+let w_w;
 
 function setup() {
-   window_w = min(window.innerWidth, 1200);
-   createCanvas(window_w, window_w, WEBGL);
+   w_w = min(window.innerWidth, 1200);
+
+   createCanvas(w_w, w_w, WEBGL);
    ma = atan(1 / sqrt(2));
    maxD = dist(0, 0, 200, 200);
+
+   draw_ui()
+   frameRate(60);
+}
+
+function draw_ui() {
+   let dec = createButton('Decrement');
+   let inc = createButton('Increment');
+
+   let c_c = window.innerWidth / 2;
+   let spacing = min(c_c * 0.2);
+
+   dec.position(c_c - (spacing + inc.width), 25);
+   inc.position(c_c + spacing, 25);
+   dec.mousePressed(() => { decrement(5) });
+   inc.mousePressed(() => { decrement(-5) });
 }
 
 function draw() {
    background("#1e1e1e");
 
-   let o_w = window_w + 100;
+   let o_w = w_w + 100;
    ortho(-o_w, o_w, o_w, -o_w, 0, o_w + 500);
 
    if (o_w > 750) {
@@ -23,7 +40,6 @@ function draw() {
 
    rotateX(-ma);
    rotateY(QUARTER_PI);
-
 
    rectMode(CENTER);
 
@@ -44,4 +60,8 @@ function draw() {
    }
 
    angle -= 0.08;
+}
+
+function decrement(val) {
+   w += val;
 }
