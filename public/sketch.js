@@ -20,16 +20,20 @@ function draw_ui() {
    let inc = createButton('Increment');
 
    let c_c = window.innerWidth / 2;
-   let spacing = min(c_c * 0.2);
+   let spacing = min(c_c * 0.4);
 
    dec.position(c_c - (spacing + inc.width), 25);
    inc.position(c_c + spacing, 25);
    dec.mousePressed(() => { decrement(5) });
    inc.mousePressed(() => { decrement(-5) });
+
+   slider = createSlider(18, 200, w);
+   slider.position(c_c - slider.width * 0.5, 25);
 }
 
 function draw() {
    background("#1e1e1e");
+   w = slider.value();
 
    let o_w = w_w + 100;
    ortho(-o_w, o_w, o_w, -o_w, 0, o_w + 500);
